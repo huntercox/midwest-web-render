@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
+// Simple test route - no middleware, no Inertia
+Route::get('/test', function () {
+	return 'Hello from Laravel! Routing is working.';
+});
+
 Route::middleware(['web'])->group(function () {
 	Route::get('/', function () {
 		return Inertia::render('Home');
