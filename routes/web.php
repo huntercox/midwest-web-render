@@ -12,6 +12,23 @@ Route::get('/test', function () {
 	return 'Hello from Laravel! Routing is working.';
 });
 
+// Debug route to check Laravel bootstrap and environment
+Route::get('/debug', function () {
+	$info = [
+		'laravel_version' => app()->version(),
+		'environment' => app()->environment(),
+		'working_dir' => getcwd(),
+		'app_path' => app_path(),
+		'base_path' => base_path(),
+		'routes_loaded' => count(app('router')->getRoutes()),
+		'php_version' => PHP_VERSION,
+		'app_debug' => config('app.debug'),
+		'app_key_set' => !empty(config('app.key')),
+	];
+
+	return response()->json($info, 200, [], JSON_PRETTY_PRINT);
+});
+
 Route::middleware(['web'])->group(function () {
 	Route::get('/', function () {
 		return Inertia::render('Home');
