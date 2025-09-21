@@ -1,0 +1,68 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  overflow-x: hidden; // Prevent horizontal scrolling
+}
+
+/* Test SPA layout */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  min-height: 100vh;
+  /* Full viewport height */
+
+  >div {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// Mobile-first header padding
+header {
+  padding: 0; // Let container handle padding
+}
+
+// Mobile-first main content
+main {
+  flex: 1;
+  max-width: 100%; // Prevent overflow
+  overflow-x: hidden; // Prevent horizontal scrolling
+
+  @media (min-width: var(--breakpoint-sm)) {
+    padding: var(--space-md);
+  }
+
+  @media (min-width: var(--breakpoint-lg)) {
+    padding: var(--space-lg);
+  }
+
+  // Main content sections
+  section {
+    margin-bottom: var(--space-md);
+    max-width: 100%; // Prevent child overflow
+
+    @media (min-width: var(--breakpoint-md)) {
+      margin-bottom: var(--space-lg);
+    }
+  }
+}
+
+// Mobile-first footer
+footer {
+  padding: var(--space-md) var(--space-sm);
+
+  @media (min-width: var(--breakpoint-sm)) {
+    padding: var(--space-md);
+  }
+}

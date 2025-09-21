@@ -1,0 +1,279 @@
+.login {
+  .banner {
+    text-align: center;
+  }
+
+  main {
+
+    .container {
+      padding-top: 2rem;
+
+      @media (min-width: var(--breakpoint-md)) {
+        padding-top: 4rem;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+    }
+  }
+
+  #user-login {
+    // Override focus state for login form with green color to match contact form
+    .form-control {
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(0, 255, 204, 0.3); // Using the same green color as contact form
+      }
+    }
+
+    .form-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+
+      .remember-me {
+        .form-label {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          width: auto;
+          white-space: nowrap;
+          margin-bottom: 0;
+          font-weight: 400;
+
+          span {
+            margin-left: 0.5rem;
+            font-size: var(--font-size-sm);
+          }
+
+          .form-control {
+            display: inline-block;
+            width: auto;
+            margin: 0;
+          }
+        }
+      }
+
+      .btn {
+        transition: opacity var(--transition-fast), transform var(--transition-fast);
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none;
+        }
+
+        &:not(:disabled):hover {
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+
+  // #user-login {
+  // 	display: flex;
+  // 	flex-direction: column;
+  // 	justify-content: center;
+  // 	align-items: center;
+  // 	width: 80%;
+  // 	margin: 0 auto;
+
+  // 	.form-group {
+  // 		width: 100%;
+  // 		max-width: 300px;
+  // 		margin-bottom: 1.5rem;
+  // 	}
+
+  // 	.form-label {
+  // 		display: block;
+  // 		font-weight: 500;
+  // 		margin-bottom: 0.5rem;
+  // 		color: var(--color-text);
+
+  // 		.required {
+  // 			color: var(--color-red);
+  // 			margin-left: 2px;
+  // 		}
+  // 	}
+
+  // 	// Validation alert styles
+  // 	.validation-errors {
+  // 		width: 100%;
+  // 		max-width: 300px;
+  // 		margin-bottom: 1.5rem;
+
+  // 		.alert {
+  // 			padding: 0.75rem 1rem;
+  // 			border-radius: var(--radius-md);
+  // 			border: 1px solid transparent;
+
+  // 			&.alert-danger {
+  // 				background-color: color-mix(in srgb, var(--color-red), transparent 90%);
+  // 				border-color: color-mix(in srgb, var(--color-red), transparent 70%);
+  // 				color: var(--color-red);
+  // 			}
+
+  // 			ul {
+  // 				margin: 0;
+  // 				padding-left: 1rem;
+
+  // 				li {
+  // 					margin-bottom: 0.25rem;
+  // 					font-size: var(--font-size-sm);
+
+  // 					&:last-child {
+  // 						margin-bottom: 0;
+  // 					}
+  // 				}
+  // 			}
+  // 		}
+  // 	}
+
+  // 	// Alert styles for automated validation
+  // 	.alert-warning {
+  // 		background-color: color-mix(in srgb, var(--color-yellow), transparent 90%);
+  // 		border-color: color-mix(in srgb, var(--color-yellow), transparent 70%);
+  // 		color: var(--color-yellow-dark);
+  // 	}
+
+  // 	// Valid feedback styles
+  // 	.valid-feedback {
+  // 		color: var(--color-green);
+  // 		font-size: 0.875rem;
+  // 		margin-top: 0.25rem;
+  // 		display: block;
+  // 	}
+
+  // 	// Password input container for toggle button
+  // 	.password-input-container {
+  // 		position: relative;
+  // 		display: flex;
+  // 		align-items: center;
+
+  // 		.form-control {
+  // 			padding-right: 2.5rem; // Make room for the toggle button
+  // 		}
+
+  // 		.password-toggle {
+  // 			position: absolute;
+  // 			right: 0.5rem;
+  // 			background: none;
+  // 			border: none;
+  // 			font-size: 1rem;
+  // 			cursor: pointer;
+  // 			padding: 0.25rem;
+  // 			color: color-mix(in srgb, var(--color-text), transparent 30%);
+  // 			transition: color var(--transition-fast);
+
+  // 			&:hover {
+  // 				color: var(--color-text);
+  // 			}
+
+  // 			&:focus {
+  // 				outline: 2px solid var(--color-gray);
+  // 				outline-offset: 2px;
+  // 				border-radius: var(--radius-sm);
+  // 			}
+  // 		}
+  // 	}
+
+  // 	// Enhanced validation feedback
+  // 	.invalid-feedback {
+  // 		display: block;
+  // 		font-size: var(--font-size-sm);
+  // 		color: var(--color-red);
+  // 		margin-top: 0.25rem;
+  // 		font-weight: 400;
+  // 		line-height: 1.4;
+  // 	}
+
+  // 	// Enhanced form states
+  // 	.form-control {
+  // 		transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+
+  // 		&.is-valid {
+  // 			border-color: var(--color-green);
+  // 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2328a745' d='M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 1 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z'/%3E%3C/svg%3E");
+  // 			background-repeat: no-repeat;
+  // 			background-position: right 0.5rem center;
+  // 			background-size: 1rem;
+  // 			padding-right: 2.5rem;
+
+  // 			&:focus {
+  // 				box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-green), transparent 70%);
+  // 			}
+  // 		}
+
+  // 		&.is-invalid {
+  // 			border-color: var(--color-red);
+  // 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23dc3545' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z'/%3E%3C/svg%3E");
+  // 			background-repeat: no-repeat;
+  // 			background-position: right 0.5rem center;
+  // 			background-size: 1rem;
+  // 			padding-right: 2.5rem;
+
+  // 			&:focus {
+  // 				box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-red), transparent 70%);
+  // 			}
+  // 		}
+
+  // 		// Special handling for password field with toggle button
+  // 		&.password-input-container .form-control {
+  // 			&.is-valid,
+  // 			&.is-invalid {
+  // 				padding-right: 4rem; // Extra space for both icon and toggle button
+  // 			}
+  // 		}
+  // 	}
+
+  // 	.form-footer {
+  // 		display: flex;
+  // 		flex-direction: row;
+  // 		justify-content: space-between;
+  // 		align-items: center;
+  // 		margin-top: 1.5rem;
+  // 		width: 100%;
+  // 		max-width: 300px;
+
+  // 		.remember-me {
+  // 			.form-label {
+  // 				display: flex;
+  // 				flex-direction: row;
+  // 				justify-content: flex-start;
+  // 				align-items: center;
+  // 				width: auto;
+  // 				white-space: nowrap;
+  // 				margin-bottom: 0;
+  // 				font-weight: 400;
+
+  // 				span {
+  // 					margin-left: 0.5rem;
+  // 					font-size: var(--font-size-sm);
+  // 				}
+
+  // 				.form-control {
+  // 					display: inline-block;
+  // 					width: auto;
+  // 					margin: 0;
+  // 				}
+  // 			}
+  // 		}
+
+  // 		.btn {
+  // 			transition: opacity var(--transition-fast), transform var(--transition-fast);
+
+  // 			&:disabled {
+  // 				opacity: 0.6;
+  // 				cursor: not-allowed;
+  // 				transform: none;
+  // 			}
+
+  // 			&:not(:disabled):hover {
+  // 				transform: translateY(-1px);
+  // 			}
+  // 		}
+  // 	}
+  // }
+}

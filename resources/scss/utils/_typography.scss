@@ -1,0 +1,141 @@
+// Base typography
+body {
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-base);
+	line-height: var(--line-height-base);
+	color: var(--color-text);
+
+	&::selection {
+		background-color: var(--color-black);
+		color: var(--color-white);
+	}
+}
+
+// Heading styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-family-base);
+	line-height: var(--line-height-tight);
+	margin-bottom: var(--space-md);
+}
+
+h1 {
+	font-size: var(--font-size-3xl);
+}
+
+h2 {
+	font-size: var(--font-size-2xl);
+}
+
+h3 {
+	font-size: var(--font-size-xl);
+}
+
+h4 {
+	font-size: var(--font-size-lg);
+}
+
+// Text utilities
+.text-xs {
+	font-size: var(--font-size-xs);
+}
+.text-sm {
+	font-size: var(--font-size-sm);
+}
+.text-base {
+	font-size: var(--font-size-base);
+}
+.text-lg {
+	font-size: var(--font-size-lg);
+}
+.text-xl {
+	font-size: var(--font-size-xl);
+}
+.text-2xl {
+	font-size: var(--font-size-2xl);
+}
+.text-3xl {
+	font-size: var(--font-size-3xl);
+}
+
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
+
+.font-normal {
+	font-weight: 400;
+}
+.font-medium {
+	font-weight: 500;
+}
+.font-bold {
+	font-weight: 700;
+}
+
+.font-mono {
+	font-family: var(--font-family-mono);
+}
+.font-base {
+	font-family: var(--font-family-base);
+}
+.font-heading {
+	font-family: var(--font-family-heading);
+}
+
+// Line heights
+.leading-tight {
+	line-height: var(--line-height-tight);
+}
+.leading-base {
+	line-height: var(--line-height-base);
+}
+.leading-loose {
+	line-height: var(--line-height-loose);
+}
+
+// Text colors
+.text-default {
+	color: var(--color-text);
+}
+.text-light {
+	color: var(--color-text-light);
+}
+.text-primary {
+	color: var(--color-gray);
+}
+.text-secondary {
+	color: var(--color-white);
+}
+
+// Modern text wrapping and balance
+.text-balance {
+	text-wrap: balance;
+}
+
+.text-pretty {
+	text-wrap: pretty;
+}
+
+// Truncate text with ellipsis
+.truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// Fluid typography using clamp
+.fluid-text {
+	font-size: clamp(var(--fluid-text-min, var(--font-size-base)),
+			var(--fluid-text-preferred, 5vw),
+			var(--fluid-text-max, var(--font-size-3xl)));
+}

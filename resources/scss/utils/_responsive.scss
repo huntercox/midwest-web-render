@@ -1,0 +1,268 @@
+// Responsive breakpoints as CSS variables
+:root {
+	// Breakpoints
+	--breakpoint-xs: 480px;
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-2xl: 1536px;
+}
+
+// Mobile first utilities
+.hide-xs {
+	@media (max-width: var(--breakpoint-xs)) {
+		display: none !important;
+	}
+}
+
+.hide-sm {
+	@media (max-width: var(--breakpoint-sm)) {
+		display: none !important;
+	}
+}
+
+.hide-md {
+	@media (max-width: var(--breakpoint-md)) {
+		display: none !important;
+	}
+}
+
+.hide-lg {
+	@media (max-width: var(--breakpoint-lg)) {
+		display: none !important;
+	}
+}
+
+.hide-xl {
+	@media (max-width: var(--breakpoint-xl)) {
+		display: none !important;
+	}
+}
+
+// Show utilities (mobile-first approach)
+.show-sm-up {
+	display: none !important;
+
+	@media (min-width: var(--breakpoint-sm)) {
+		display: block !important;
+	}
+}
+
+.show-md-up {
+	display: none !important;
+
+	@media (min-width: var(--breakpoint-md)) {
+		display: block !important;
+	}
+}
+
+.show-lg-up {
+	display: none !important;
+
+	@media (min-width: var(--breakpoint-lg)) {
+		display: block !important;
+	}
+}
+
+// Desktop first utilities
+.show-xs {
+	display: none !important;
+
+	@media (max-width: var(--breakpoint-xs)) {
+		display: block !important;
+	}
+}
+
+.show-sm {
+	display: none !important;
+
+	@media (max-width: var(--breakpoint-sm)) {
+		display: block !important;
+	}
+}
+
+.show-md {
+	display: none !important;
+
+	@media (max-width: var(--breakpoint-md)) {
+		display: block !important;
+	}
+}
+
+.show-lg {
+	display: none !important;
+
+	@media (max-width: var(--breakpoint-lg)) {
+		display: block !important;
+	}
+}
+
+.show-xl {
+	display: none !important;
+
+	@media (max-width: var(--breakpoint-xl)) {
+		display: block !important;
+	}
+}
+
+// Mobile-first responsive spacing helpers
+.responsive-spacing {
+	--spacing-multiplier: 0.5; // Start small on mobile
+
+	@media (min-width: var(--breakpoint-sm)) {
+		--spacing-multiplier: 0.75;
+	}
+
+	@media (min-width: var(--breakpoint-md)) {
+		--spacing-multiplier: 1;
+	}
+
+	@media (min-width: var(--breakpoint-lg)) {
+		--spacing-multiplier: 1.25;
+	}
+
+	&>* {
+		margin-bottom: calc(var(--space-md) * var(--spacing-multiplier));
+	}
+}
+
+// Mobile-first text sizing
+.text-responsive {
+	font-size: var(--font-size-sm);
+
+	@media (min-width: var(--breakpoint-sm)) {
+		font-size: var(--font-size-base);
+	}
+
+	@media (min-width: var(--breakpoint-md)) {
+		font-size: var(--font-size-lg);
+	}
+}
+
+// Mobile touch targets
+.touch-target {
+	min-height: 44px; // iOS/Android recommended minimum
+	min-width: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+// Mobile-friendly stack
+.mobile-stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+
+	@media (min-width: var(--breakpoint-md)) {
+		flex-direction: row;
+		gap: var(--space-md);
+		align-items: center;
+	}
+}
+
+// Overflow prevention utilities
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.overflow-x-hidden {
+	overflow-x: hidden;
+}
+
+.overflow-y-hidden {
+	overflow-y: hidden;
+}
+
+.overflow-auto {
+	overflow: auto;
+}
+
+.overflow-x-auto {
+	overflow-x: auto;
+}
+
+.overflow-y-auto {
+	overflow-y: auto;
+}
+
+// Prevent horizontal scroll on specific elements
+.no-horizontal-scroll {
+	max-width: 100%;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+// Text overflow utilities
+.text-ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.text-clip {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;
+}
+
+// Container query based classes
+.container-query {
+	container-type: inline-size;
+	container-name: dynamic;
+}
+
+@container dynamic (width < 40rem) {
+	.cq-stack {
+		flex-direction: column !important;
+	}
+
+	.cq-full {
+		width: 100% !important;
+	}
+
+	.cq-center {
+		justify-content: center !important;
+		align-items: center !important;
+		text-align: center !important;
+	}
+
+	.cq-text-sm {
+		font-size: var(--font-size-sm) !important;
+	}
+}
+
+// Modern media query features
+@media (prefers-color-scheme: dark) {
+	// For when dark mode compatibility is added
+	body.auto-dark-mode {
+		--color-text: var(--color-white);
+		--color-background: var(--color-black);
+		--color-background-alt: color-mix(in srgb, var(--color-black), var(--color-white) 5%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.motion-safe {
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
+// Print styles
+@media print {
+	.no-print {
+		display: none !important;
+	}
+
+	.print-full {
+		width: 100% !important;
+	}
+
+	a[href]:after {
+		content: " (" attr(href) ")";
+		font-size: 0.8em;
+	}
+}

@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Kraut-type-a-fuck';
+  src: url('../fonts/kraut-type-a-fuck.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('../fonts/DepartureMono-Regular.woff') format('woff'), url('../fonts/DepartureMono-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Secret Typewriter';
+  src: url('../fonts/secret-typewriter.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+$courier: 'Courier New', Courier, monospace;
+$kraut: 'Kraut-type-a-fuck';
+$departure: 'Departure Mono';
+$typewriter: 'Secret Typewriter';

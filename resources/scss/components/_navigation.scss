@@ -1,0 +1,28 @@
+nav {}
+
+.nav-container {
+  display: flex;
+
+  .nav-links {
+    a {
+      margin-right: 1rem;
+      font-size: 1rem;
+      font-family: var(--font-family-base);
+      color: var(--color-white);
+
+      &:hover {
+        color: var(--color-green);
+      }
+    }
+  }
+}
+
+
+/* Mobile Menu */
+.menu-toggle {
+  display: block;
+
+  @media (min-width: 767px) {
+    display: none;
+  }
+}

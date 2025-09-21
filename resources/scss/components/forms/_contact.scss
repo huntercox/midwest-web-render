@@ -1,0 +1,117 @@
+.contact-form {
+  margin: 0 auto;
+
+  @media (min-width: var(--breakpoint-md)) {
+    max-width: 600px;
+    padding-top: 4rem;
+    scroll-margin-top: 2rem; // Add scroll offset for better positioning
+  }
+
+  // Contact error styling
+  .contact-error {
+    margin-bottom: var(--space-md);
+  }
+
+  // Override focus state for contact form with green color
+  .form-control {
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(0, 255, 204, 0.3); // Using the actual green color
+    }
+  }
+
+  // Form help text
+  .form-text {
+    font-size: 0.875rem;
+    color: color-mix(in srgb, var(--color-text), transparent 50%);
+    margin-top: 0.25rem;
+
+    &.text-muted {
+      font-style: italic;
+    }
+  }
+
+  // Phone number specific styles
+  input[type="tel"] {
+    font-family: monospace, var(--font-family-base);
+    letter-spacing: 0.5px;
+
+    &::placeholder {
+      color: color-mix(in srgb, var(--color-text), transparent 60%);
+      font-family: var(--font-family-base);
+      letter-spacing: normal;
+    }
+  }
+
+  // Optional field label styling
+  label .optional {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: color-mix(in srgb, var(--color-text), transparent 40%);
+    font-style: italic;
+  }
+
+  // Phone-specific invalid feedback styling is now handled by main forms
+
+  // Success state styling
+  .contact-success {
+    text-align: center;
+    padding: 3rem 2rem;
+
+    .success-icon {
+      width: 4rem;
+      height: 4rem;
+      background-color: var(--color-green);
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 2rem;
+        height: 2rem;
+        color: var(--color-background);
+      }
+    }
+
+    .success-title {
+      font-size: var(--font-size-2xl);
+      color: var(--color-green);
+      margin-bottom: 1rem;
+    }
+
+    .success-message {
+      font-size: var(--font-size-lg);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .success-details {
+      color: color-mix(in srgb, var(--color-text), transparent 30%);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .success-reset {
+      margin-top: 1rem;
+    }
+  }
+
+  // Add a subtle highlight animation for the entire form
+  &.highlight {
+    animation: gentle-highlight 2s ease-in-out;
+  }
+}
+
+// Keyframe animation for form highlight
+@keyframes gentle-highlight {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 204, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(0, 255, 204, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 204, 0);
+  }
+}

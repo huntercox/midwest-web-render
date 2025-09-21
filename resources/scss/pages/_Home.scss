@@ -1,0 +1,69 @@
+.home {
+
+  main {
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    /* Welcome section */
+    .welcome-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      margin: 1.4rem auto 2rem auto;
+
+      @media (min-width: var(--breakpoint-md)) {
+        margin: 2.2rem 0 3.4rem 0;
+      }
+
+      .intro {
+        font-size: 1.2rem;
+        line-height: 1.2;
+        text-align: center;
+        width: 96%;
+        margin: 0 auto;
+        text-wrap: balance;
+
+        @media (min-width: var(--breakpoint-sm)) {
+          font-size: 1.2rem;
+        }
+        @media (min-width: var(--breakpoint-md)) {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    // Contact section
+    .contact {
+      padding: 2rem 0;
+
+      &-form__header {
+        text-align: center;
+      }
+
+      &-form__header h3 {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-sm);
+
+        @media (min-width: var(--breakpoint-md)) {
+          font-size: var(--font-size-2xl);
+        }
+      }
+
+
+      &-form__header p {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--space-md);
+      }
+
+      // Contact requirement text styling
+      &-requirement {
+        font-style: italic;
+        color: color-mix(in srgb, var(--color-text), transparent 30%);
+        margin-bottom: var(--space-lg) !important;
+      }
+    }
+  }
+}

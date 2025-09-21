@@ -1,2 +1,11 @@
 User-agent: *
-Disallow:
+Disallow: /app/
+Disallow: /bootstrap/
+Disallow: /config/
+Disallow: /database/
+Disallow: /resources/
+Disallow: /routes/
+Disallow: /storage/
+Disallow: /vendor/
+
+Sitemap: https://midwest-web.com/sitemap.xml

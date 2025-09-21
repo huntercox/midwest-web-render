@@ -1,0 +1,100 @@
+// Base card
+.card {
+	background-color: var(--color-background);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-sm);
+	overflow: hidden;
+	transition: transform var(--transition-base), box-shadow var(--transition-base);
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-md);
+	}
+}
+
+// Card content sections
+.card__header,
+.card__body,
+.card__footer {
+	padding: var(--space-md);
+}
+
+.card__header {
+	border-bottom: 1px solid color-mix(in srgb, var(--color-text), transparent 90%);
+}
+
+.card__footer {
+	border-top: 1px solid color-mix(in srgb, var(--color-text), transparent 90%);
+}
+
+// Card with image
+.card--with-image {
+	.card__image {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+	}
+}
+
+// Horizontal card
+.card--horizontal {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+
+	@media (max-width: 40rem) {
+		grid-template-columns: 1fr;
+	}
+
+	.card__image {
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+// Card variations
+.card--primary {
+	border-top: 4px solid var(--color-gray);
+}
+
+.card--secondary {
+	border-top: 4px solid var(--color-white);
+}
+
+// Card groups
+.card-group {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+	gap: var(--space-md);
+}
+
+// Interactive card
+.card--interactive {
+	cursor: pointer;
+
+	&:active {
+		transform: translateY(2px);
+	}
+}
+
+// Card with hover reveal
+.card--reveal {
+	position: relative;
+
+	.card__reveal-content {
+		position: absolute;
+		inset: 0;
+		background-color: var(--color-background);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: var(--space-md);
+		opacity: 0;
+		transition: opacity var(--transition-base);
+	}
+
+	&:hover .card__reveal-content {
+		opacity: 1;
+	}
+}

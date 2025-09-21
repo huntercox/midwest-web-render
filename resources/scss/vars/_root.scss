@@ -1,0 +1,68 @@
+@use "colors";
+@use "fonts";
+
+:root {
+  // Color system
+  --color-gray: #{colors.$gray};
+  --color-white: #{colors.$white};
+  --color-black: #{colors.$black};
+  --color-green: #{colors.$green};
+  --color-red: #{colors.$red};
+  --color-accent: #{colors.$accent};
+  --color-dark: #{colors.$dark};
+
+  // Primary role based colors
+  --color-text: var(--color-white);
+  --color-text-light: var(--color-gray);
+  --color-background: var(--color-gray);
+  --color-background-alt: color-mix(in rgb, var(--color-black), var(--color-gray) 5%);
+
+  // Typography
+  --font-family-base: #{fonts.$departure},
+  system-ui,
+  sans-serif;
+  --font-family-heading: #{fonts.$kraut},
+  #{fonts.$departure},
+  system-ui,
+  sans-serif;
+  --font-family-mono: #{fonts.$courier},
+  monospace;
+
+  // Font sizes
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+
+  // Line heights
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+  --line-height-loose: 1.8;
+
+  // Spacing system
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 8rem;
+
+  // Border radius
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-full: 9999px;
+
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(255, 255, 255, 0.05);
+  --shadow-md: 0 4px 6px rgba(255, 255, 255, 0.1);
+  --shadow-lg: 0 10px 15px rgba(255, 255, 255, 0.1);
+
+  // Transitions
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+}

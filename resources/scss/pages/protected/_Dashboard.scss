@@ -1,0 +1,55 @@
+.dashboard {
+  color: var(--color-white);
+
+  .greeting-text {
+    margin: 0 1rem 1rem 0;
+
+    strong {
+      color: var(--color-green);
+    }
+  }
+
+  .header-text {
+    margin-top: 4px;
+  }
+
+  .profile-section {
+    color: var(--color-black);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    h3 {
+      font-size: 1.4rem;
+      margin: 0.5rem 0 1rem;
+      color: var(--color-white);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.75rem;
+        color: var(--color-white);
+
+        strong {
+          background-color: var(--color-white);
+          color: var(--color-black);
+          padding: 0.25rem;
+        }
+      }
+    }
+  }
+
+  .user-details {
+    flex: 2;
+  }
+  .stripe-invoices {}
+}
+
+.dashboard-content {
+  padding: 20px;
+}
