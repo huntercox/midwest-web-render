@@ -11,6 +11,10 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
+# Debug: Check what Components files exist
+RUN ls -la resources/js/Components/ || echo "Components directory not found"
+RUN ls -la resources/js/Pages/ || echo "Pages directory not found"
+
 # Install Node dependencies and build assets using your render-build script
 RUN npm run render-build
 
