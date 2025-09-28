@@ -18,7 +18,7 @@ ENV LOG_CHANNEL stderr
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Install Node.js and NPM for building Vue/Inertia assets
-RUN apk add --no-cache nodejs npm
+RUN apk add --no-cache nodejs npm nano
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
