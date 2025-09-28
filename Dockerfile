@@ -11,10 +11,6 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Debug: Check what Components files exist
-RUN ls -la resources/js/Components/ || echo "Components directory not found"
-RUN ls -la resources/js/Pages/ || echo "Pages directory not found"
-
 # Install Node dependencies and build assets using your render-build script
 RUN npm run render-build
 
@@ -28,14 +24,6 @@ RUN php artisan config:cache && \
 
 # Create storage symlink
 RUN php artisan storage:link
-
-# Create a migration script that runs on container start
-RUN echo '#!/bin/sh\n\
-echo "Running database migrations..."\n\
-php artisan migrate --force --no-interaction\n\
-echo "Migrations completed!"\n\
-exec /start.sh' > /start-with-migrate.sh && \
-    chmod +x /start-with-migrate.sh
 
 # Set proper permissions
 RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache
@@ -55,4 +43,11 @@ ENV LOG_CHANNEL stderr
 # Ensure proper routing for SPA
 RUN echo 'location / { try_files $uri $uri/ /index.php?$query_string; }' > /var/www/html/nginx.conf
 
-CMD ["/start-with-migrate.sh"]
+# Add a custom startup script that runs migrations
+RUN echo '#!/bin/sh' > /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo 'echo "Running Laravel deployment tasks..."' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo 'php /var/www/html/artisan migrate --force --no-interaction' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo 'echo "Deployment tasks completed!"' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    chmod +x /var/www/html/scripts/00-laravel-deploy.sh
+
+CMD ["/start.sh"]
