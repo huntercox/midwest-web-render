@@ -46,7 +46,15 @@ RUN echo 'location / { try_files $uri $uri/ /index.php?$query_string; }' > /var/
 # Add a custom startup script that runs migrations
 RUN echo '#!/bin/sh' > /var/www/html/scripts/00-laravel-deploy.sh && \
     echo 'echo "Running Laravel deployment tasks..."' >> /var/www/html/scripts/00-laravel-deploy.sh && \
-    echo 'php /var/www/html/artisan migrate --force --no-interaction' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo '# Wait for database to be ready' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo 'sleep 2' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo '# Check if DB_CONNECTION is set' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo 'if [ "$DB_CONNECTION" = "pgsql" ]; then' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo '    echo "Using PostgreSQL database"' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo '    php /var/www/html/artisan migrate --force --no-interaction' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo 'else' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo '    echo "Database not configured, skipping migrations"' >> /var/www/html/scripts/00-laravel-deploy.sh && \
+    echo 'fi' >> /var/www/html/scripts/00-laravel-deploy.sh && \
     echo 'echo "Deployment tasks completed!"' >> /var/www/html/scripts/00-laravel-deploy.sh && \
     chmod +x /var/www/html/scripts/00-laravel-deploy.sh
 
