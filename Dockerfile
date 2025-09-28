@@ -1,12 +1,15 @@
 FROM richarvey/nginx-php-fpm:3.1.6
 
+ENV WEBROOT=/var/www/html/public \
+    RUN_SCRIPTS=1 \
+    PHP_ERRORS_STDERR=1
+    COMPOSER_ALLOW_SUPERUSER=1
+
+
 COPY . .
 
 # Install Node.js and NPM for building Vue/Inertia assets
 RUN apk add --no-cache nodejs npm
-
-# Allow composer to run as root
-ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
