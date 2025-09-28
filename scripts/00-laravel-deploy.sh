@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 echo "Running composer"
-composer install --no-dev --working-dir=/var/www/html --no-interaction --prefer-dist --optimize-autoloader
+composer global require hirak/prestissimo
+composer install --no-dev --working-dir=/var/www/html
 
 echo "Installing Node deps..."
 cd /var/www/html
